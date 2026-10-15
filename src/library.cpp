@@ -456,9 +456,7 @@ Library::AttributeCounts Library::getBookAttributeCounts(BookStrPropMemFn p) con
 
   for (const auto& pair: m_books) {
     const auto& book = pair.second;
-    if (book.getOrigId().empty()) {
-      propValueCounts[(book.*p)()] += 1;
-    }
+    propValueCounts[(book.*p)()] += 1;
   }
   return propValueCounts;
 }
@@ -488,10 +486,8 @@ Library::AttributeCounts Library::getBooksLanguagesWithCounts() const
 
   for (const auto& pair: m_books) {
     const auto& book = pair.second;
-    if (book.getOrigId().empty()) {
-      for ( const auto& lang : book.getLanguages() ) {
-        ++langsWithCounts[lang];
-      }
+    for ( const auto& lang : book.getLanguages() ) {
+      ++langsWithCounts[lang];
     }
   }
   return langsWithCounts;
